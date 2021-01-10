@@ -123,7 +123,7 @@ class Hero extends Phaser.GameObjects.Sprite {
   preUpdate(time, delta) {
     super.preUpdate(time, delta);
 
-    this.input.didPressJump = !this.isDead() && Phaser.Input.Keyboard.JustDown(this.keys.up);
+    this.input.didPressJump = !this.isDead() && Phaser.Input.Keyboard.JustDown(this.keys.space);
     
     if (!this.isDead() && this.keys.left.isDown) {
       this.body.setAccelerationX(-1000);
@@ -138,7 +138,7 @@ class Hero extends Phaser.GameObjects.Sprite {
     }
 
     if (this.moveState.is('jumping') || this.moveState.is('flipping')) {
-      if (!this.keys.up.isDown && this.body.velocity.y < -150) {
+      if (!this.keys.space.isDown && this.body.velocity.y < -150) {
         this.body.setVelocityY(-150);
       }
     }
